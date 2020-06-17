@@ -1,37 +1,4 @@
-# openjdk-latest
+Rolling release of (usually) STSs  OpenJDK by openEuler Community.
+OpenJDK has release cadence of 6 months, but 3/4 of them are Short Term Supported for 6 months only. This package is designed to harbor them. Currently it is build of OpenJDK 14. LTSs will go also as separate packages. 
 
-#### 介绍
-openEuler Community builds of OpenJDK latest
-
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+JDK14 is current release of Java platform. It is bringing many cool improvements - https://openjdk.java.net/projects/jdk/14/. Unluckily, this package is STS (short term support) version. Between individual LTS there will be always several STS. Again, please see announcement: http://mail.openjdk.java.net/pipermail/discuss/2017-September/004281.html. So this is rolling release of all STSs to come. Its fate during the release of fresh LTS is yet to be decided.

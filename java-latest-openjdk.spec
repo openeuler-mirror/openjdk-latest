@@ -152,7 +152,7 @@
 # Used via new version scheme. JDK 14 was
 # GA'ed in March 2020 => 20.3
 %global vendor_version_string 20.3
-%global securityver 1
+%global securityver 2
 # buildjdkver is usually same as %%{majorver},
 # but in time of bootstrap of next jdk, it is majorver-1, 
 # and this it is better to change it here, on single place
@@ -167,8 +167,8 @@
 %global origin_nice     OpenJDK
 %global top_level_dir_name   %{origin}
 %global minorver        0
-%global buildver        7
-%global rpmrelease      1
+%global buildver        12
+%global rpmrelease      0
 # priority must be 8 digits in total; up to openjdk 1.8, we were using 18..... so when we moved to 11, we had to add another digit
 %if %is_system_jdk
 %global priority %( printf '%02d%02d%02d%02d' %{majorver} %{minorver} %{securityver} %{buildver} )
@@ -963,24 +963,14 @@ Source14: TestECDSA.java
 Patch1000: rh1648249-add_commented_out_nss_cfg_provider_to_java_security.patch
 
 # Ignore AWTError when assistive technologies are loaded
-Patch1:    rh1648242-accessible_toolkit_crash_do_not_break_jvm.patch
+Patch1: rh1648242-accessible_toolkit_crash_do_not_break_jvm.patch
 # Restrict access to java-atk-wrapper classes
-Patch2:    rh1648644-java_access_bridge_privileged_security.patch
-Patch3:    rh649512-remove_uses_of_far_in_jpeg_libjpeg_turbo_1_4_compat_for_jdk10_and_up.patch
+Patch2: rh1648644-java_access_bridge_privileged_security.patch
+Patch3: rh649512-remove_uses_of_far_in_jpeg_libjpeg_turbo_1_4_compat_for_jdk10_and_up.patch
 # Follow system wide crypto policy RHBZ#1249083
-Patch4:    pr3183-rh1340845-support_system_crypto_policy.patch
+Patch4: pr3183-rh1340845-support_system_crypto_policy.patch
 # Depend on pcs-lite-libs instead of pcs-lite-devel as this is only in optional repo
 Patch6: rh1684077-openjdk_should_depend_on_pcsc-lite-libs_instead_of_pcsc-lite-devel.patch
-
-	
-#############################################	
-#
-# OpenJDK patches appearing in 14.0.2	
-#	
-#############################################
-
-# JDK-8237879: make 4.3 breaks build
-Patch7: jdk8237879-make_4_3_build_fixes.patch
 
 #############################################
 #
@@ -988,8 +978,6 @@ Patch7: jdk8237879-make_4_3_build_fixes.patch
 #
 #############################################
 
-Patch8: jdk8243059-build_fails_when_with_vendor_contains_comma.patch
-Patch9: jdk8235833-posixplatform_cpp_should_not_include_sysctl_h.patch
 
 BuildRequires: autoconf
 BuildRequires: automake
@@ -1215,9 +1203,6 @@ pushd %{top_level_dir_name}
 %patch3 -p1
 %patch4 -p1
 %patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
 popd # openjdk
 
 %patch1000
@@ -1744,5 +1729,11 @@ require "copy_jdk_configs.lua"
 
 
 %changelog
+* Tue Aug 1 2020 jdkboy <guoge1@huawei.com> -  1:14.0.2.12-1.rolling
+- Update to jdk-14.0.2+12
+- remove jdk8237879-make_4_3_build_fixes.patch
+- remove jdk8235833-posixplatform_cpp_should_not_include_sysctl_h.patch
+- remove jdk8243059-build_fails_when_with_vendor_contains_comma.patch
+
 * Tue Jun 16 2020 jdkboy <guoge1@huawei.com> -  1:14.0.1.7-1
 - Initial load

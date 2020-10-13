@@ -168,7 +168,7 @@
 %global top_level_dir_name   %{origin}
 %global minorver        0
 %global buildver        36
-%global rpmrelease      0
+%global rpmrelease      1
 # priority must be 8 digits in total; up to openjdk 1.8, we were using 18..... so when we moved to 11, we had to add another digit
 %if %is_system_jdk
 %global priority %( printf '%02d%02d%02d%02d' %{majorver} %{minorver} %{securityver} %{buildver} )
@@ -1718,6 +1718,9 @@ require "copy_jdk_configs.lua"
 
 %changelog
 * Tue Oct 13 2020 noah <hedongbo@huawei.com> - 1:15.0.0.36-1.rolling
+- delete redudant patches
+
+* Tue Oct 13 2020 noah <hedongbo@huawei.com> - 1:15.0.0.36-0.rolling
 - Update for JDK 15 GA
 
 * Thu Sep 17 2020 noah <hedongbo@huawei.com> - 1:15.0.0.36-0-1.ea.rolling

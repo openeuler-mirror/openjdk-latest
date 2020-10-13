@@ -156,7 +156,7 @@
 # buildjdkver is usually same as %%{majorver},
 # but in time of bootstrap of next jdk, it is majorver-1, 
 # and this it is better to change it here, on single place
-%global buildjdkver 14
+%global buildjdkver 15
 # We don't add any LTS designator for STS packages (this package).
 # Neither for Fedora nor EPEL which would have %%{rhel} macro defined.
  %global lts_designator ""
@@ -184,7 +184,7 @@
 # Release will be (where N is usually a number starting at 1):
 # - 0.N%%{?extraver}%%{?dist} for EA releases,
 # - N%%{?extraver}{?dist} for GA releases
-%global is_ga           0
+%global is_ga           1
 %if %{is_ga}
 %global ea_designator ""
 %global ea_designator_zip ""
@@ -1717,6 +1717,9 @@ require "copy_jdk_configs.lua"
 
 
 %changelog
+* Tue Oct 13 2020 noah <hedongbo@huawei.com> - 1:15.0.0.36-1.rolling
+- Update for JDK 15 GA
+
 * Thu Sep 17 2020 noah <hedongbo@huawei.com> - 1:15.0.0.36-0-1.ea.rolling
 - Update to jdk 15.0.0.36 tag
 - Update vendor version string to 20.9

@@ -152,7 +152,7 @@
 # Used via new version scheme. JDK 15 was
 # GA'ed in September 2020 => 20.9
 %global vendor_version_string 20.9
-%global securityver 1
+%global securityver 2
 # buildjdkver is usually same as %%{majorver},
 # but in time of bootstrap of next jdk, it is majorver-1, 
 # and this it is better to change it here, on single place
@@ -167,7 +167,7 @@
 %global origin_nice     OpenJDK
 %global top_level_dir_name   %{origin}
 %global minorver        0
-%global buildver        9
+%global buildver        7
 %global rpmrelease      0
 # priority must be 8 digits in total; up to openjdk 1.8, we were using 18..... so when we moved to 11, we had to add another digit
 %if %is_system_jdk
@@ -1717,6 +1717,9 @@ require "copy_jdk_configs.lua"
 
 
 %changelog
+* Mon Mar 1 2021 noah <hedongbo@huawei.com> - 1:15.0.2.7-0.rolling
+- Update to jdk-15.0.2+7
+
 * Tue Oct 27 2020 noah <hedongbo@huawei.com> - 1:15.0.1.9-0.rolling
 - Update to jdk-15.0.1+9
 
